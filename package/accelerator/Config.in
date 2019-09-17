@@ -1,0 +1,29 @@
+comment "cryptodev needs a Linux kernel to be built"
+	depends on !BR2_LINUX_KERNEL
+
+config BR2_PACKAGE_ACCELERATOR
+	bool "accelerator"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Select the desired cryptodev implementation.
+
+if BR2_PACKAGE_ACCELERATOR
+
+config BR2_PACKAGE_IPROC_CRYPTO
+	bool "iproc crypto accelerator"
+	select BR2_PACKAGE_IPROC_TCRYPT
+	help
+		Select broadcom IPROC XGS symmetric crypto acceleration support.
+
+		This driver provides kernel support for crypto acceleration using the
+		Secure Processing Unit(SPU). This driver registers with and provides
+		services to the Kernel Cryptographic API.
+
+config BR2_PACKAGE_IPROC_CRYPTO_TEST
+	bool "iproc crypto test application"
+	depends on BR2_PACKAGE_CRYPTODEV_LINUX
+	depends on BR2_PACKAGE_IPROC_CRYPTO
+	help
+		Simple test utility for IPROC crypto driver and accelerator.  
+
+endif

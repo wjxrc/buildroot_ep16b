@@ -1,0 +1,43 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+        if [ -f /proc/sys/net/netfilter/nf_conntrack_helper ]
+        then
+            echo 0 > /proc/sys/net/netfilter/nf_conntrack_helper
+        fi
+        if grep -qwo 'ip=dhcp' /proc/cmdline; then
+            # start syslog daemon
+            /sbin/syslogd
+            # remove udhcpc PID and lock file
+            /bin/rm -f /var/run/udhcpc.pid
+            /bin/rm -f /var/lock/udhcpc.lock
+            # start the udhcpc
+            /sbin/udhcpc -S -C -s /usr/share/udhcpc/iproc.script -p /var/run/udhcpc.pid -A 5 -t 5 -T 2 &>/dev/null &
+        fi
+        echo "Trying to mount custfs on NAND..."
+        mkdir -p /mnt/custfs
+        if cat /proc/mtd | grep -q '^mtd8: .*\"ncustfs\"$'; then
+            /usr/sbin/ubiattach -m 8 -d 1
+            /bin/mount -t ubifs /dev/ubi1_0 /mnt/custfs/
+        else
+        if cat /proc/mtd | grep -q '^mtd4: .*\"ncustfs\"$'; then
+            /usr/sbin/ubiattach -m 4 -d 1
+            /bin/mount -t ubifs /dev/ubi1_0 /mnt/custfs/
+#        else
+#        if cat /proc/mtd | grep -q '^mtd4: .*\"custfs\"$'; then
+#            /bin/mount -t jffs2 /dev/mtdblock4 /mnt/custfs/      
+#        fi
+        fi
+        fi
+         ;;
+  stop)
+         ;;
+  restart|reload)
+         ;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
