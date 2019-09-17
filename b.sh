@@ -34,4 +34,4 @@ else
 fi
 	
 cp .config configs/ep16b_rootfs_defconfig 
-cp output/build/busybox-1.24.1/.config package/busybox/busybox.config 
+cp output/build/busybox-1.24.1/.config  board/broadcom/iproc/busybox.config 
