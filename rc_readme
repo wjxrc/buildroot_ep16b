@@ -1,0 +1,11 @@
+ tar -xvf XLDK_src_4.2.1.tgz  -C t
+ cd t/XLDK/
+wangjianxin@Bsp:~/work/ep16b/XLDK_4.2.1/t/XLDK$ ls
+bootloader  buildroot  kernel  tools
+wangjianxin@Bsp:~/work/ep16b/XLDK_4.2.1/t/XLDK$ cd buildroot/
+wangjianxin@Bsp:~/work/ep16b/XLDK_4.2.1/t/XLDK/buildroot$ ls
+arch   boot     Config.in         configs  docs  linux     Makefile.legacy  README   system
+board  CHANGES  Config.in.legacy  COPYING  fs    Makefile  package          support  toolchain
+wangjianxin@Bsp:~/work/ep16b/XLDK_4.2.1/t/XLDK/buildroot$ 
+ git init 
+git add .
