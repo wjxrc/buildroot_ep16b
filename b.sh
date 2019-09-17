@@ -1,7 +1,7 @@
 #bin/bash
-#make  ep16b_rootfs_defconfig
+make  ep16b_rootfs_defconfig
 #make menuconfig
-cp .config ../uboot/u-boot-2016.01/bak/buildroot_ep16b_config
+#cp .config ../uboot/u-boot-2016.01/bak/buildroot_ep16b_config
 make -j2
 if [[ $1 = "initram" ]]; then
 	echo "initramfs"
