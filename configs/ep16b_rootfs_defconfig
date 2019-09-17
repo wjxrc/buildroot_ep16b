@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2015.11.1 Configuration
+# Buildroot 2015.11.1-g3dc7dc1-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 
@@ -98,7 +98,7 @@ BR2_BZCAT="bzcat"
 BR2_XZCAT="xzcat"
 BR2_TAR_OPTIONS=""
 BR2_DEFCONFIG="/home/wangjianxin/work/ep16b/XLDK_4.2.1/XLDK/buildroot/configs/ep16b_rootfs_defconfig"
-BR2_DL_DIR="$(TOPDIR)/dl"
+BR2_DL_DIR="/home/wangjianxin/.bsp_zl_bak/opensrc_software/buildroot_2015_11"
 BR2_HOST_DIR="$(BASE_DIR)/host"
 
 #
@@ -159,7 +159,7 @@ BR2_TOOLCHAIN_EXTERNAL=y
 BR2_TOOLCHAIN_EXTERNAL_CUSTOM=y
 # BR2_TOOLCHAIN_EXTERNAL_DOWNLOAD is not set
 BR2_TOOLCHAIN_EXTERNAL_PREINSTALLED=y
-BR2_TOOLCHAIN_EXTERNAL_PATH="$(TOPDIR)/host/usr"
+BR2_TOOLCHAIN_EXTERNAL_PATH="/opt/bcm_iproc/usr"
 BR2_TOOLCHAIN_EXTERNAL_CUSTOM_PREFIX="$(ARCH)-linux"
 BR2_TOOLCHAIN_EXTERNAL_PREFIX="$(ARCH)-linux"
 BR2_TOOLCHAIN_EXTERNAL_GLIBC=y

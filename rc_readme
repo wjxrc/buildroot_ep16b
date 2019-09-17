@@ -9,3 +9,6 @@ board  CHANGES  Config.in.legacy  COPYING  fs    Makefile  package          supp
 wangjianxin@Bsp:~/work/ep16b/XLDK_4.2.1/t/XLDK/buildroot$ 
  git init 
 git add .
+git commit  -a -m "add rc readme"
+git remote add origin https://github.com/wjxrc/buildroot_ep16b.git
+git push -u origin master
